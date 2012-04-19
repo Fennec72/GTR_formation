@@ -1,0 +1,20 @@
+<plugin>
+	<nom>Cisticole</nom>
+    <icon>vignette.png</icon>
+	<auteur>[Denis Chenu->http://www.gsill.net]</auteur>
+    <version>0.1.3</version>
+	<licence><a href='http://www.gnu.org/licenses/gpl-3.0.txt' rel='licence'>GPL v3</a></licence>
+	<description><multi>
+		[en]A theme with a lot of CSS3 
+		[fr]Un th&egrave;me simple avec beaucoup de r&egrave;gle CSS3
+	</multi></description>
+	<lien>[->http://www.spip-contrib.net/?article3558]</lien>
+  	<etat>stable</etat>
+	<categorie>theme</categorie>
+  	<prefix>theme</prefix>
+<utilise id="Z" version="[1.2.0;]" />
+<bouton id='cisticole' parent='bando_squelette'>
+	<titre>Cisticole</titre>
+	<url>configurer_cisticole</url>
+</bouton>
+</plugin>

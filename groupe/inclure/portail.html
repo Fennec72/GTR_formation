@@ -1,0 +1,192 @@
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}>
+[(#REM) Fil d'Ariane ]
+<div style="display:none">
+[(#ID_RUBRIQUE|=={37})#SET{rsstoemail,3}]
+
+</div>
+<div class="contenu-principal">
+
+    <div class="cartouche">#FORMULAIRE_FAVORI
+        [(#LOGO_RUBRIQUE||image_reduire{200,200})]
+        <h2 class="titre_tete#ID_SECTEUR #EDIT{titre}">[(#TITRE|majuscules )]<a href="#URL_PAGE{backend}&id_rubrique=#ID_RUBRIQUE"><img src="#CHEMIN{images/Picto.png}" /></a></h2>
+        
+    </div>
+    [<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+</div>
+<BOUCLE_nous_connaitre(ARTICLES){id_rubrique}{titre_mot=nous_connaitre}>
+<div id="nous_connaitre">
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">#TITRE</h2>
+    [(#LOGO_ARTICLE|right|#URL_ARTICLE||image_reduire{80,80})]
+    [(#INTRODUCTION|couper{300})<br /><a href="#URL_ARTICLE">Lire la suite</a>]
+    [(#INCLURE{fond=inc-documents}{id_article}{env})]
+</div>
+</BOUCLE_nous_connaitre>
+<div id="orga_bloc">
+
+<div id="organisation">
+<BOUCLE_organisation(ARTICLES){id_rubrique}{titre_mot=organisation}>
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">#TITRE</h2>
+    [(#INTRODUCTION|couper{200})<br /><a href="#URL_ARTICLE">Lire la suite</a>]
+    [(#INCLURE{fond=inc-documents}{id_article}{env})]
+</BOUCLE_organisation>
+    <h2 class="titre_connaitre couleur_#ID_SECTEUR">Notre organisation</h2>
+    <p>Sed nec mollis neque! Vivamus lacinia, dolor aliquet cursus tempus, diam elit egestas ante, ac scelerisque metus mauris in elit. Cras a neque nulla. Pellentesque sed orci nibh, in vulputate risus. Ut gravida fringilla velit, ac adipiscing ligula convallis auctor? Nulla viverra aliquam lectus, eget pretium arcu congue eget. Aenean ac erat dolor, et elementum elit.</p>
+<//B_organisation>
+</div>
+
+<div id="projet">
+<BOUCLE_projet(ARTICLES){id_rubrique}{titre_mot=projet}>
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">#TITRE</h2>
+    [(#INTRODUCTION|couper{300})<br /><a href="#URL_ARTICLE">Lire la suite</a>]
+    [(#INCLURE{fond=inc-documents}{id_article}{env})]
+</BOUCLE_projet>
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">Projet de direction</h2>
+    <p>Sed nec mollis neque! Vivamus lacinia, dolor aliquet cursus tempus, diam elit egestas ante, ac scelerisque metus mauris in elit. Cras a neque nulla. Pellentesque sed orci nibh, in vulputate risus. Ut gravida fringilla velit.</p>
+<//B_projet>
+</div>
+<div id="rejoint_portail">
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">Ils nous ont rejoints</h2>
+<B_rejoint>
+    <section>
+        <script type="text/javascript">
+
+featuredcontentglider.init({
+    gliderid: "canadaprovinces", //ID of main glider container
+    contentclass: "glidecontent", //Shared CSS class name of each glider content
+    togglerid: "p-select", //ID of toggler container
+    remotecontent: "", //Get gliding contents from external file on server? "filename" or "" to disable
+    selected: 0, //Default selected content index (0=1st)
+    persiststate: false, //Remember last content shown within browser session (true/false)?
+    speed: 1700, //Glide animation duration (in milliseconds)
+    direction: "downup", //set direction of glide: "updown", "downup", "leftright", or "rightleft"
+    autorotate: true, //Auto rotate contents (true/false)?
+    autorotateconfig: [10000, 2] //if auto rotate enabled, set [milliseconds_btw_rotations, cycles_before_stopping]
+})
+
+</script>
+
+<div id="canadaprovinces" class="glidecontentwrapper ajax">
+<BOUCLE_rejoint(RUBRIQUES){id_parent}{titre_mot=rejoint}>
+    <BOUCLE_art_rejoint(ARTICLES){id_rubrique}>
+        <div class="glidecontent">
+            [(#LOGO_ARTICLE|left||image_reduire{80})]
+        <a href="#URL_ARTICLE"><h3 class="h3">#TITRE</h3></a>[(#TEXTE|couper{180})]
+        </div>
+    </BOUCLE_art_rejoint>
+</BOUCLE_rejoint>
+</div>
+
+<div id="p-select" class="glidecontenttoggler">
+<a href="#" class="prev">Precedent</a> 
+<a href="#" class="next">Suivant</a>
+</div>
+
+    </section>
+</B_rejoint>
+</div>
+
+</div>
+<div id="agenda_portail#ID_SECTEUR">
+<B_agenda_portail>
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">L'agenda</h2>
+    <dl>
+<BOUCLE_agenda_portail(ARTICLES){id_rubrique}{titre_mot=agenda}>
+    <BOUCLE_recup_art_rub(EVENEMENTS){id_article}{age_fin<0}{doublons}></BOUCLE_recup_art_rub>
+    <B_evenements>#ANCRE_PAGINATION
+    <BOUCLE_evenements(EVENEMENTS){id_article}{!doublons}{par date_debut}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>[(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})]</time></dt>
+        <dd><a href="#URL_EVENEMENT" class='mediabox'>#TITRE</a></dd>
+    </BOUCLE_evenements>
+    [<p class="pagination">(#PAGINATION)</p>]
+    </B_evenements>
+    #_agenda_portail:TEXTE
+    <//B_evenements>
+</BOUCLE_agenda_portail>
+    </dl>
+</B_agenda_portail>
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">L'agenda</h2>
+    <dl>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+    </dl>
+<//B_agenda_portail>
+</div>
+
+<!-- fin orga_bloc -->
+<hr style="clear:both" />
+</div>
+<div id="suite">
+<div id="actu_portail#ID_SECTEUR">
+    
+    
+        <h2 class="titre_tete#ID_SECTEUR">LES ACTUALITES</h2>
+        <dl>
+    <BOUCLE_ss_rub_actu(RUBRIQUES){id_parent}> 
+        <BOUCLE_test_actu(RUBRIQUES){id_rubrique}>
+            <BOUCLE_cherche_actu(RUBRIQUES){id_rubrique}{titre_mot=actu_entite}>
+                <BOUCLE_stock_art(ARTICLES){id_rubrique}{doublons actu}></BOUCLE_stock_art>
+            </BOUCLE_cherche_actu>
+        </BOUCLE_test_actu>
+        <BOUCLE_re(BOUCLE_ss_rub_actu)></BOUCLE_re>
+    </BOUCLE_ss_rub_actu>
+    <B_affiche_actu>
+    #ANCRE_PAGINATION
+    <BOUCLE_affiche_actu(ARTICLES){!doublons actu}{!par date}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">#TITRE</a></dt>
+        <dd><time>[(#DATE|date_relative)]</time> [(#INTRODUCTION{150})]</dd>
+        <hr class="sepa" />
+    </BOUCLE_affiche_actu>
+        </dl>
+    [<p class="pagination">(#PAGINATION)</p>]
+    </B_affiche_actu>
+    
+    
+</div>
+<div id="outils#ID_SECTEUR">
+    <BOUCLE_rub_outils(RUBRIQUES){id_parent}{titre_mot=outils_entite}>
+        <h2 class="titre_tete#ID_SECTEUR">OUTILS & PUBLICATIONS</h2>
+        <dl>
+    <BOUCLE_art_outils(ARTICLES){id_rubrique}{doublons rose}></BOUCLE_art_outils>
+    <BOUCLE_ss_rub_outils(RUBRIQUES){id_parent}>
+    <BOUCLE_ss_art_outils(ARTICLES){id_rubrique}{doublons rose}></BOUCLE_ss_art_outils>
+    </BOUCLE_ss_rub_outils>
+    <B_aff_art_outils>
+    #ANCRE_PAGINATION
+    <BOUCLE_aff_art_outils(ARTICLES){!doublons rose}{!par date}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">[(#TITRE|couper{30})]</a></dt>
+        <dd><time>[(#DATE|date_relative)]</time> [(#TEXTE|couper{100})]</dd>
+    </BOUCLE_aff_art_outils>
+        </dl>
+        [<p class="pagination">(#PAGINATION)</p>]
+    </B_aff_art_outils>
+    <a href="[(#URL_PAGE{documents,id_rubrique=#ID_RUBRIQUE})]">Voir tous les documents</a>
+    </BOUCLE_rub_outils>
+    <h2 class="titre_tete#ID_SECTEUR">OUTILS & PUBLICATIONS</h2>
+        <dl>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            
+        </dl>
+    <//B_rub_outils>
+</div>  
+
+
+</BOUCLE_contenu_rubrique>

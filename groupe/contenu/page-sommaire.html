@@ -1,0 +1,20 @@
+<div id="suite">
+   <h2 class="titre_tete"><:derniers_articles:></h2>
+    [(#REM) Derniers articles ]
+        <B_articles_recents>
+        <div class="menu articles">
+            [(#ANCRE_PAGINATION)]
+            <ul>
+                <BOUCLE_articles_recents(ARTICLES) {par date}{inverse} {pagination 5}>
+                <li class="hentry">
+                    [(#LOGO_ARTICLE_RUBRIQUE{#URL_ARTICLE}|image_reduire{150,100})]
+                    <h3 class="entry-title"><a href="#URL_ARTICLE" rel="bookmark">#TITRE</a></h3>
+                    <small><abbr class="published"[ title="(#DATE|date_iso)"]>[(#DATE|affdate_jourcourt)]</abbr>[, <:par_auteur:> (#LESAUTEURS)]</small>
+                    [<div class="#EDIT{intro} introduction entry-content">(#INTRODUCTION)</div>]
+                </li>
+                </BOUCLE_articles_recents>
+            </ul>
+            [<p class="pagination">(#PAGINATION)</p>]
+        </div>
+        </B_articles_recents>
+</div>

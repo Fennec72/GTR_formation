@@ -1,0 +1,120 @@
+[<div class="contenu-principal">
+    <div id="descriptif_site_spip"><h2 class="titre_tete">COMMUNICATION URGENTE</h2>(#DESCRIPTIF_SITE_SPIP)</div>
+</div>]
+
+<BOUCLE_espace_rh(RUBRIQUES){id_rubrique=111}>
+<div class="liste articles sommaire">
+    <h2 class="titre_tete">#TITRE</h2>
+    <BOUCLE_toc(RUBRIQUES){id_rubrique=520}><h2 class="biton"><a href="#publications">Acc&eacute;s &agrave; l'espace manager</a></h2></BOUCLE_toc>
+    <div id="gauche">
+        <BOUCLE_424(RUBRIQUES){id_rubrique=424}>
+        <h2 class="titre_connaitre couleur_8">#TITRE</h2>
+        <ul>
+        <BOUCLE_art_424(RUBRIQUES){id_rubrique}>
+            <li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+        </BOUCLE_art_424>
+        </ul>
+        </BOUCLE_424>
+    </div>
+    <!-- fin gauche -->
+    <div id="droite">
+        <h2 class="titre_connaitre couleur_8">Agenda</h2>
+        <dl>
+            <BOUCLE_agenda_portail(ARTICLES){id_rubrique}{titre_mot=agenda}>
+    <BOUCLE_recup_art_rub(EVENEMENTS){id_article}{age_fin<0}{doublons}></BOUCLE_recup_art_rub>
+    <B_evenements>#ANCRE_PAGINATION
+    <BOUCLE_evenements(EVENEMENTS){id_article}{!doublons}{par date_debut}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>[(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})]</time></dt>
+        <dd><a href="#URL_EVENEMENT" class='mediabox'>#TITRE</a></dd>
+    </BOUCLE_evenements>
+    [<p class="pagination">(#PAGINATION)</p>]
+    </B_evenements>
+    #_agenda_portail:TEXTE
+    <//B_evenements>
+</BOUCLE_agenda_portail>
+        </dl>
+    </div>
+    <!-- fin droite -->
+</div>
+<!-- fin liste articles sommaire -->
+<div id="actu">
+    <BOUCLE_rub_actu(RUBRIQUES){id_parent}{titre_mot=actu_entite}>
+    <B_actu_portail>
+        <h2 class="titre_tete">LES ACTUALITES</h2>
+        <dl>
+    <BOUCLE_actu_portail(ARTICLES){id_rubrique}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">#TITRE</a></dt>
+        <dd><time>[(#DATE|date_relative)]</time> [(#TEXTE|couper{150})]</dd>
+        <hr class="sepa" />
+    </BOUCLE_actu_portail>
+        </dl>
+    </B_actu_portail>
+    
+    </BOUCLE_rub_actu>
+</div>
+<div id="indic">
+    <BOUCLE_indicateurs(RUBRIQUES){titre_mot=indicateurs}>
+    <h2 class="titre_tete">#TITRE</h2>
+    <div id="ma_actu">
+        <ul>
+            <BOUCLE_art_indic(ARTICLES){id_rubrique}>
+            <li><a href="#URL_ARTICLE">#TITRE</a></li>
+            </BOUCLE_art_indic>
+        </ul>
+    </div>
+    </BOUCLE_indicateurs>
+</div>
+<BOUCLE_520(RUBRIQUES){id_rubrique=520}>
+<div id="publications">
+    <h2 class="titre_tete">Espace manager</h2>
+    <div id="gauche">
+        <h2 class="titre_connaitre couleur_8">Accompagner ses collaborateurs</h2>
+        <BOUCLE_521(RUBRIQUES){id_rubrique=521}>
+        <ul>
+            <BOUCLE_art_521(ARTICLES){id_rubrique}>
+            <li><a href="#URL_ARTICLE">#TITRE</a></li>
+            </BOUCLE_art_521>
+        </ul>
+        </BOUCLE_521>
+        <h2 class="titre_connaitre couleur_8">Se former</h2>
+        <BOUCLE_522(RUBRIQUES){id_rubrique=522}>
+        <ul>
+            <BOUCLE_art_522(ARTICLES){id_rubrique}>
+            <li><a href="#URL_ARTICLE">#TITRE</a></li>
+            </BOUCLE_art_522>
+        </ul>
+        </BOUCLE_522>
+        <h2 class="titre_connaitre couleur_8">Actualités manageriales</h2>
+        <BOUCLE_523(RUBRIQUES){id_rubrique=523}>
+        <ul>
+            <BOUCLE_art_523(ARTICLES){id_rubrique}>
+            <li><a href="#URL_ARTICLE">#TITRE</a></li>
+            </BOUCLE_art_523>
+        </ul>
+        </BOUCLE_523>
+    </div>
+    <div id="droite">
+        <h2 class="titre_connaitre couleur_8">Liens</h2>
+        <BOUCLE_682(RUBRIQUES){id_rubrique=682}>
+        <ul>
+            <BOUCLE_art_682(ARTICLES){id_rubrique}>
+            <li><a href="#URL_ARTICLE">#TITRE</a></li>
+            </BOUCLE_art_682>
+        </ul>
+        </BOUCLE_682>
+        <h2 class="titre_connaitre couleur_8">Forums</h2>
+        <BOUCLE_683(RUBRIQUES){id_rubrique=683}>
+        <ul>
+            <BOUCLE_art_683(ARTICLES){id_rubrique}>
+            <li><a href="#URL_ARTICLE">#TITRE</a></li>
+            </BOUCLE_art_683>
+        </ul>
+        </BOUCLE_683>
+        <h2 class="titre_connaitre couleur_8">FAQ</h2>
+        <BOUCLE_art_faq(ARTICLES){id_article=818}>
+            #TEXTE
+        </BOUCLE_art_faq>
+    </div>
+</div>
+</BOUCLE_520>
+</BOUCLE_espace_rh>

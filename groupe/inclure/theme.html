@@ -1,0 +1,131 @@
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}>
+[(#REM) Fil d'Ariane ]
+
+<div class="contenu-principal">
+
+    <div class="cartouche">#FORMULAIRE_FAVORI
+        [(#LOGO_RUBRIQUE||image_reduire{200,200})]
+        <h2 class="titre_tete#ID_SECTEUR #EDIT{titre}">[(#TITRE|majuscules )]</h2>
+        
+    </div>
+
+    [<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+</div>
+<BOUCLE_nous_connaitre(ARTICLES){id_rubrique}{titre_mot=nous_connaitre}>
+<div id="nous_connaitre" class="theme">
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">#TITRE</h2>
+    [(#INTRODUCTION|couper{1500})<br /><a href="#URL_ARTICLE">Lire la suite</a>]
+</div>
+</BOUCLE_nous_connaitre>
+
+<div id="agenda_portail#ID_SECTEUR">
+<B_agenda_portail>
+    <h2 class="titre_connaitre off_couleur_#ID_SECTEUR">L'agenda</h2>
+    <dl>
+<BOUCLE_agenda_portail(ARTICLES){id_rubrique}{titre_mot=agenda}>
+    <BOUCLE_recup_art_rub(EVENEMENTS){id_article}{age_fin<0}{doublons}></BOUCLE_recup_art_rub>
+    <B_evenements>#ANCRE_PAGINATION
+    <BOUCLE_evenements(EVENEMENTS){id_article}{!doublons}{par date_debut}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>[(#DATE_DEBUT|Agenda_affdate_debut_fin{#DATE_FIN,#HORAIRE})]</time></dt>
+        <dd><a href="#URL_EVENEMENT" class='mediabox'>#TITRE</a></dd>
+    </BOUCLE_evenements>
+    [<p class="pagination">(#PAGINATION)</p>]
+    </B_evenements>
+    #_agenda_portail:TEXTE
+    <//B_evenements>
+</BOUCLE_agenda_portail>
+    </dl>
+</B_agenda_portail>
+    <h2 class="titre_connaitre_off couleur_#ID_SECTEUR">L'agenda</h2>
+    <dl>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><time>Jeudi 15/06/2011</time></dt>
+        <dd>dolor aliquet cursus tempus</dd>
+    </dl>
+<//B_agenda_portail>
+</div>
+
+<!-- fin orga_bloc -->
+<hr style="clear:both" />
+</div>
+<div id="suite">
+<div id="actu_portail#ID_SECTEUR">
+    <BOUCLE_rub_actu(RUBRIQUES){id_parent}{titre_mot=actu_entite}>
+    <B_actu_portail>
+        <h2 class="titre_tete#ID_SECTEUR">LES ACTUALITES</h2>
+        #ANCRE_PAGINATION
+        <dl>
+    <BOUCLE_actu_portail(ARTICLES){id_rubrique}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">#TITRE</a></dt>
+        <dd><time>[(#DATE|date_relative)]</time> [(#INTRODUCTION{150})]</dd>
+        <hr class="sepa" />
+    </BOUCLE_actu_portail>
+        [<p class="pagination">(#PAGINATION)</p>]
+        </dl>
+    </B_actu_portail>
+    
+    </BOUCLE_rub_actu>
+    <h2 class="titre_tete#ID_SECTEUR">LES ACTUALITES</h2>
+    <dl>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+        <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+        <hr class="sepa" />
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+        <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+        <hr class="sepa" />
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+        <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+        <hr class="sepa" />
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+        <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+        <hr class="sepa" />
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+        <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+        <hr class="sepa" />
+    </dl>
+    <//B_rub_actu>
+</div>
+<div id="outils#ID_SECTEUR">
+    <BOUCLE_rub_outils(RUBRIQUES){id_parent}{titre_mot=outils_entite}>
+        <h2 class="titre_tete#ID_SECTEUR">OUTILS & PUBLICATIONS</h2>
+        <dl>
+    <BOUCLE_art_outils(ARTICLES){id_rubrique}{doublons rose}></BOUCLE_art_outils>
+    <BOUCLE_ss_rub_outils(RUBRIQUES){id_parent}>
+    <BOUCLE_ss_art_outils(ARTICLES){id_rubrique}{doublons rose}></BOUCLE_ss_art_outils>
+    </BOUCLE_ss_rub_outils>
+    <B_aff_art_outils>#ANCRE_PAGINATION
+    <BOUCLE_aff_art_outils(ARTICLES){!doublons rose}{!par date}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">[(#TITRE|couper{30})]</a></dt>
+        <dd><time>[(#DATE|date_relative)]</time> [(#TEXTE|couper{100})]</dd>
+    </BOUCLE_aff_art_outils>
+    [<p class="pagination">(#PAGINATION)</p>]
+    </B_aff_art_outils>
+        </dl>
+
+    </BOUCLE_rub_outils>
+    <h2 class="titre_tete#ID_SECTEUR">OUTILS & PUBLICATIONS</h2>
+        <dl>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#">Mon titre d'actu</a></dt>
+            <dd><time>26/06/09</time> avec un peu de texte, avec un peu de texte,avec un peu de texte,avec un peu de texte,</dd>
+            
+        </dl>
+    <//B_rub_outils>
+</div>
+</BOUCLE_contenu_rubrique>

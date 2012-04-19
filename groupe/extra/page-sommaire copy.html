@@ -1,0 +1,19 @@
+[(#REM) Inscription au site ]
+#FORMULAIRE_INSCRIPTION
+
+[(#REM) Liens des forums ]
+
+<div class="liste forums">
+    <h2 class="titre_tete">L'AGENDA NATIONAL <a href="#URL_PAGE{backend}&id_rubrique=112" title="Suivre les publications de cette rubrique"><img src="#CHEMIN{images/Picto.png}" /></a><span style="display:none" id="agenda_nat">#FORMULAIRE_CLEVERMAIL{2,html,box}</span></h2>
+    <ul class="liste-items">
+        <B_evenements>
+            #ANCRE_PAGINATION
+            <BOUCLE_evenements(EVENEMENTS){id_article=49}{age_fin<0}{pagination 5}>
+            <li><time>[(#DATE|affdate)]</time>
+            [<a href="#URL_EVENEMENT" class='mediabox'>(#DESCRIPTIF|couper{65})</a>]</li>
+            </BOUCLE_evenements>
+            [<p class="pagination">(#PAGINATION)</p>]
+            </B_evenements>
+    </ul>
+</div>
+ 

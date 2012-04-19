@@ -1,0 +1,10 @@
+<p>Bonjour #SESSION{nom} / Aujourd'hui: [(#DATE|affdate)] - <BOUCLE_rub_saint(RUBRIQUES){id_rubrique=105}><BOUCLE_nominis(SYNDIC_ARTICLES){id_rubrique}{!par date}{0,1}><a href="#URL_ARTICLE">#TITRE</a></BOUCLE_nominis></BOUCLE_rub_saint>
+<BOUCLE_context_art(ARTICLES){id_article}>
+	<p id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane_art(HIERARCHIE){id_article}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane_art>[ &gt; <strong class="on">(#TITRE|couper{80})</strong>]</p>
+</BOUCLE_context_art>
+<BOUCLE_context_rub(RUBRIQUES){id_rubrique}>
+	<p id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a><BOUCLE_ariane_rub(HIERARCHIE){id_rubrique}> &gt; <a href="#URL_RUBRIQUE">[(#TITRE|couper{80})]</a></BOUCLE_ariane_rub>[ &gt; <strong class="on">(#TITRE|couper{80})</strong>]</p>
+</BOUCLE_context_rub>
+	<p id="hierarchie"><a href="#URL_SITE_SPIP/"><:accueil_site:></a></p>
+<//B_context_rub>
+<//B_context_art>

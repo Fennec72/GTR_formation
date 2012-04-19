@@ -1,0 +1,30 @@
+                    <div id="box1">
+                        <h2 class="bobox couleur_7">Mes favoris</h2>
+                            
+                    </div>
+                    <div id="box2">
+                        <h2 class="bobox couleur_7">Articles les plus lus</h2>
+                        <ul>
+                            <BOUCLE_hitparade(ARTICLES){par popularite}{inverse}{0,8}>
+                            <li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_ARTICLE">#TITRE</a></li>
+                            </BOUCLE_hitparade>
+                        </ul>
+                    </div>
+                    <div id="box3">
+                            <h2 class="bobox couleur_7"><:derniers_commentaires:></h2>
+                            <ul>
+                                <BOUCLE_forums_liens(FORUMS?) {plat} {par date}{inverse} {0,6}>
+                                <li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>[(#TEXTE|couper{40})]</a></li>
+                                </BOUCLE_forums_liens>
+                            </ul>
+                    </div>
+                    <div id="box4">
+                        <h2 class="bobox couleur_7">Aide</h2>
+                        <ul>
+                            <li>Nullam commodo feugiat aliquam</li>
+                            <li>Nullam commodo feugiat aliquam</li>
+                            <li>Nullam commodo feugiat aliquam</li>
+                            <li>Nullam commodo feugiat aliquam</li>
+                            <li>Nullam commodo feugiat aliquam</li>
+                        </ul>
+                    </div>
