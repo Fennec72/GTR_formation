@@ -1,42 +1,32 @@
-                    <div id="box1">
-    					<BOUCLE_agenda_gtr(ARTICLES){id_rubrique}{titre_mot=agenda}>
-    					[(#TEXTE|choixsivide{#INCLURE{fond=inc-agenda,id_article},#INCLURE{fond=inc-zimbra,id_article}})]
-    					</BOUCLE_agenda_gtr>
-					</div>
-                    <div id="box2">
-                        <h2 class="bobox couleur_7">Articles les plus lus</h2>
-                        <ul>
-                            <BOUCLE_hitparade(ARTICLES){par popularite}{inverse}{0,8}>
-                            <li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_ARTICLE">#TITRE</a></li>
-                            </BOUCLE_hitparade>
-                        </ul>
-                    </div>
-                    <div id="box3">
-                            <h2 class="bobox couleur_7"><:derniers_commentaires:></h2>
-                            <ul>
-                                <BOUCLE_forums_liens(FORUMS?) {plat} {par date}{inverse} {0,6}>
-                                <li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>[(#TEXTE|couper{40})]</a></li>
-                                </BOUCLE_forums_liens>
-                            </ul>
-                    </div>
-                    <div id="box4">
-                        <h2 class="bobox couleur_7">Aide</h2>
-                        ici flux RSS rub2123 de l'intranet
-                        
-                        
-                        
-                        <BOUCLE_syndic(SYNDIC_ARTICLES){age<600} {tout} {par date}{inverse} {0,50}><!--  {titre_mot=syndic_sommaire}-->
+
                     
-                    	
-								<li>[(#DATE|affdate_court) &ndash; ]<strong>(#NOM_SITE)[(#LOGO_SITE||image_reduire{50,30})]</strong><br>
-									<a href="#URL_ARTICLE"[ title="(#NOM_SITE|texte_backend)"] class="spip_out"> #TITRE
-									</a>
-								</li>
-                        
-                        
-						</BOUCLE_syndic>
-                        
-                        
-                        
-                        
-                    </div>
+                    
+                    
+<div id="box2">
+	<h2 class="bobox couleur_7">Articles les plus lus</h2>
+	<ul>
+		<BOUCLE_hitparade(ARTICLES){par popularite}{inverse}{0,8}>
+			<li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_ARTICLE">#TITRE</a></li>
+		</BOUCLE_hitparade>
+	</ul>
+</div>
+
+
+
+<div id="box3">
+	<h2 class="bobox couleur_7"><:derniers_commentaires:></h2>
+	<ul>
+		<BOUCLE_forums_liens(FORUMS?) {plat} {par date}{inverse} {0,6}>
+			<li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>[(#TEXTE|couper{40})]</a><br />
+            
+            <BOUCLE_artduforum(ARTICLES) {id_article=#ID_ARTICLE}>
+            [(#TITRE|couper{70})]
+            </BOUCLE_artduforum></li>
+		</BOUCLE_forums_liens>
+	</ul>
+</div>
+                    
+                    
+                    
+
+   

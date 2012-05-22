@@ -1,0 +1,63 @@
+<h2 class="titre_tete">Sommaire</h2>
+
+
+    [(#REM) Derniers articles ]
+
+<div class="liste-derniers_articles_sommaire">
+    <h2><:derniers_articles:></h2>
+    <dl>
+        <B_articles_recents>
+        #ANCRE_PAGINATION
+        <BOUCLE_articles_recents(ARTICLES){!par date}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">#TITRE</a></dt>
+        <dd>[<a href="#URL_ARTICLE">(#LOGO_ARTICLE|image_reduire{300})</a>]
+        <time>[(#DATE|affdate_jourcourt)]</abbr>[, <:par_auteur:> (#LESAUTEURS)]</time>[ (#CHAPO|couper{130})][ (#CHAPO|choixsivide{#TEXTE|couper{130}})]</dd>
+        <hr class="sepa" />
+        </BOUCLE_articles_recents>
+        [<p class="pagination">(#PAGINATION)</p>]
+        </B_articles_recents>
+    </dl>
+
+</div>
+
+
+    [(#REM) Derniers documents ]
+
+<div class="liste-derniers_documents_sommaire">
+    <h2>Derniers_documents</h2>
+    <dl>
+        <B_documents_recents>
+        #ANCRE_PAGINATION
+        <BOUCLE_documents_recents(DOCUMENTS){!par date}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_DOCUMENT">#TITRE</a></dt>
+        <dd>[<a href="#URL_DOCUMENT">(#LOGO_DOCUMENT|image_reduire{30})</a>]</dd>
+        <hr class="sepa" />
+        </BOUCLE_documents_recents>
+        [<p class="pagination">(#PAGINATION)</p>]
+        </B_documents_recents>
+    </dl>
+    
+</div>
+
+    [(#REM) Articles en cours ]
+
+<div class="liste-articles_en_cours_sommaire">
+    <h2>Articles en cours</h2>
+    <dl>
+        <B_articles_en_cours>
+        #ANCRE_PAGINATION
+        <BOUCLE_articles_en_cours(ARTICLES){id_rubrique=7}{!par date}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">#TITRE</a></dt>
+        <dd>[<a href="#URL_ARTICLE">(#LOGO_ARTICLE|image_reduire{300})</a>]
+        <time>[(#DATE|affdate_jourcourt)]</abbr>[, <:par_auteur:> (#LESAUTEURS)]</time>[ (#CHAPO|couper{130})][ (#CHAPO|choixsivide{#TEXTE|couper{130}})]</dd>
+        <hr class="sepa" />
+        </BOUCLE_articles_en_cours>
+        [<p class="pagination">(#PAGINATION)</p>]
+        </B_articles_en_cours>
+    </dl>
+
+</div>
+
+
+
+

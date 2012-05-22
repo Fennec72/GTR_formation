@@ -1,0 +1,50 @@
+
+<BOUCLE_auteur(AUTEURS){id_auteur?}{par id_auteur}{0,10}>
+<ul>#NOM<br/>
+#DESCRIPTIF
+
+
+<b><INCLURE{fond=inclure/adresses}></b>
+<BOUCLE_adresses_auteur(ADRESSES){id_auteur?}>
+   <ul>
+   <li>     
+        		#TYPE_ADRESSE<br />
+				#NUMERO #VOIE<br />
+                #COMPLEMENT<br />
+				#BOITE_POSTALE<br />
+                #CODE_POSTAL #VILLE<br />
+                #PAYS<br />
+                #TYPE_EMAIL<br />
+                #EMAIL<br />
+                #TYPE_NUMERO<br />
+                #NUMERO
+   </li> 
+   </ul>         
+        </BOUCLE_adresses_auteur>
+
+
+
+</ul>
+
+
+
+</BOUCLE_auteur>
+
+<br />
+<BOUCLE_adresses2(ADRESSES){id_auteur?}>
+<ul>
+<li>#NOM
+#TYPE_ADRESSE<br />
+				#NUMERO #VOIE<br />
+                #COMPLEMENT<br />
+				#BOITE_POSTALE<br />
+                #CODE_POSTAL #VILLE<br />
+                #PAYS<br />
+                #TYPE_EMAIL<br />
+                #EMAIL<br />
+                #TYPE_NUMERO<br />
+                #NUMERO</li>
+</ul>
+</BOUCLE_adresses2>
+
+

@@ -1,0 +1,48 @@
+<BOUCLE_contact(CONTACTS) {id_contact}>
+<h1 class="h1 #EDIT{nom}">#PRENOM #NOM</h1>
+<ul class="liste-item">
+	[<li class="item"><:contacts:auteur_lie:> : (#ID_AUTEUR)</li>]
+	<li class="item"><:contacts:nom_contact:> : #NOM</li>
+  	<li class="item"><:contacts:prenom:> : </li>
+    <li>#FONCTION</li>
+    <li>#TYPE_ADRESSE : #NUMERO #VOIE</li>
+    <li>#COMPLEMENT</li>
+    <li>#BOITE_POSTALE</li>
+    <li>#CODE_POSTAL #VILLE</li>
+    <li>#PAYS</li>
+    <li>#TYPE_EMAIL : #EMAIL</li>
+    <li>#TYPE_NUMERO : #NUMERO</li>
+    
+</ul>
+</BOUCLE_contact>
+
+
+<BOUCLE_auteur(AUTEURS){id_auteur}>
+<div class="contenu-principal">
+
+        <h2>#NOM bip :</h2>
+        <BOUCLE_adresses_auteur(ADRESSES){id_auteur}>
+        
+        		#TYPE_ADRESSE<br />
+				#NUMERO #VOIE<br />
+                #COMPLEMENT<br />
+				#BOITE_POSTALE<br />
+                #CODE_POSTAL #VILLE<br />
+                #PAYS<br />
+                #TYPE_EMAIL<br />
+                #EMAIL<br />
+                #TYPE_NUMERO<br />
+                #NUMERO
+                
+        </BOUCLE_adresses_auteur>
+
+</div>
+
+#FORMULAIRE_ECRIRE_AUTEUR
+
+[<div class="notes"><h2 class="h2"><:info_notes:></h2>(#NOTES)</div>]
+
+
+        
+</BOUCLE_auteur>
+

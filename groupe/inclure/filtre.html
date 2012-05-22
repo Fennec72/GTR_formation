@@ -1,0 +1,18 @@
+<BOUCLE_corvart(AUTEURS_LIENS){id_objet=2} {objet=article} {id_auteur=#SESSION{id_auteur}}{lecture=true}>
+
+<!--{id_objet=2} Car l'article de la charte de GTR est l'article N°2-->
+    
+    
+    
+    
+   
+    
+    
+    
+    
+            <div id="contenu[(#ENV{blop}|?{'',#GET{puch}})]">
+                <INCLURE{fond=contenu/#ENV{type},env}>
+            </div>
+            </BOUCLE_corvart>
+            <INCLURE{fond=contenu/page-lecture,id_article=2}>
+            <//B_corvart>

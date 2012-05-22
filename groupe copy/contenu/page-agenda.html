@@ -1,0 +1,69 @@
+<B_agenda>
+	
+<div class="contenu-principal">
+    <div class="cartouche">
+        <h2 class="#EDIT{titre} titre_tete1">Agenda</h2>
+        [<h1>(#TOTAL_BOUCLE|singulier_ou_pluriel{agenda:info_un_evenement,agenda:info_nombre_evenements})</h1>]
+        
+        
+    </div>
+
+    <div class="surlignable">
+        <b>IMPORTANT:</b><br />
+Ici sont listés tous les évènements à partir d'aujourd'hui.<br />
+        Une fois passée la date d'un évènement, il n'est plus affiché.
+    </div>
+
+</div>
+
+[(#REM) Evénement]
+
+		
+		<ul>
+		<BOUCLE_agenda(EVENEMENTS){par date}{age<=0}>
+			<li class="plugin_agenda">
+            [<br /><span class="titre_plugin_agenda">(#TITRE)</span>]
+            <br />
+<br />
+	  
+				<b>[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+				 Le [(#DATE_DEBUT|nom_jour)] [(#DATE_DEBUT|affdate)]
+				[(#HORAIRE|=={oui}|?{
+				
+				[(#REM) memes heures ?]
+				    [(#DATE_DEBUT|=={#DATE_FIN}|?{&agrave;
+				[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})]
+				
+				[(#REM) pas memes heures ?]
+				    [(#DATE_DEBUT|!={#DATE_FIN}|?{de
+				[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)] &agrave;
+				[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})]
+				,''})]
+				,
+				 Du [(#DATE_DEBUT|nom_jour)] [(#DATE_DEBUT|affdate)]
+				[(#HORAIRE|=={oui}|?{&agrave; partir de
+				[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})] au
+				[(#DATE_FIN|nom_jour)]
+				[(#DATE_FIN|affdate)] [(#HORAIRE|=={oui}|?{jusqu'&agrave;
+				[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})]  })]</b>
+				
+                [(#INSCRIPTION|?{' ',''})<p class="inscrits">#NB_INSCRITS[/(#PLACES) ]<:agenda:inscrits:></p>]
+				[<p><b>Lieu</b> : (#LIEU)</p>]
+                [<p><b>Adresse</b> : (#ADRESSE)</p>]
+				[<p><b>Descriptif</b> : (#DESCRIPTIF)</p>]
+				<br /><br />
+			</li>
+		</BOUCLE_agenda>
+		</ul>
+</B_agenda>	
+        
+        
+        
+ 
+<h1><:agenda:info_aucun_evenement:></h1>
+<//B_agenda>	
+
+
+
+		
+

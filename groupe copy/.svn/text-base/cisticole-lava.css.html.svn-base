@@ -1,0 +1,138 @@
+#HTTP_HEADER{Content-Type: text/css; charset=iso-8859-15}
+#HTTP_HEADER{Vary: Accept-Encoding}
+
+/* --------------------------------------------------------------
+   couleur.css
+   This file is part of Cisticole - © www.gsill.net - 2010
+-------------------------------------------------------------- */
+
+#SET{grad1_1,#FEFEFE} [(#REM) bg body, texte menu]
+#SET{grad1_2,#F9DBCD} [(#REM) bg lien hover, bg body gradient]
+#SET{grad1_3,#E96F36} [(#REM) titre site]
+#SET{grad1_4,#EA2A2D} [(#REM) border block, titre spip]
+#SET{grad1_5,#C01B20} [(#REM) menu background hover,menu border]
+#SET{grad1_6,#950C12} [(#REM) lien visité, bg sous menu]
+#SET{grad1_8,#250305} [(#REM) body texte]
+
+#SET{grad2_1,#FBFBFB} [(#REM) entete, bg box, bg meta]
+#SET{grad2_2,#E7E4DC} [(#REM)link entete hover,input text]
+#SET{grad2_3,#A19475} [(#REM)border input,border ]
+#SET{grad2_4,#413E36} [(#REM)bg input, titre, chapo]
+#SET{grad2_5,#212121} [(#REM)bg entete]
+
+#SET{sup1,#800000} [(#REM)lien base, navigation hover]
+#SET{sup2,#F00000} [(#REM)lien actif]
+
+
+body{background-color:[(#GET{grad1_1})];color:[(#GET{grad1_7})];}
+.texte{color:[(#GET{grad1_7})];}
+
+a, a.spip_in, a.spip_out,a.spip_note,a.spip_ancre,a.spip_url,a.spip_glossaire, a.spip_mail{	color:[(#GET{sup1})];}
+.forum a{color:[(#GET{grad1_6})];}
+a:focus,a:hover {background-color:[(#GET{grad1_2})]}
+a:visited, a.spip_in:visited, a.spip_out:visited,a.spip_note:visited,a.spip_ancre:visited,a.spip_url:visited,a.spip_glossaire:visited, a.spip_mail:visited{
+	color:[(#GET{grad1_6})];
+}
+a:active, a.spip_in:active, a.spip_out:active,a.spip_note:active,a.spip_ancre:active,a.spip_url:active,a.spip_glossaire:active, a.spip_mail:active{
+	color:[(#GET{sup2})];background-color:transparent;
+}
+table.spip td, table.spip th {border-color:[(#GET{grad2_4})];}
+table.spip th {background-color:[(#GET{grad2_3})];color:[(#GET{grad1_1})];}
+table.spip tr.row_even{background-color:[(#GET{grad2_1})]}
+table.spip tr.row_odd{background-color:[(#GET{grad2_2})]}
+.spip_code, .spip_cadre{color:[(#GET{grad2_4})]}
+.spip_cadre{background-color:[(#GET{grad2_1})];border-color:[(#GET{grad2_3})]}
+hr{color:[(#GET{grad1_4})]}
+.liste-items .item .h3:hover {background-color:[(#GET{grad1_2})]}
+.liste-items .item .h3,.liste-items .item .h3 a:visited {color:[(#GET{grad1_6})]}
+
+
+
+.formulaire_spip .explication,.formulaire_spip{color:[(#GET{grad1_7})];}
+.chapo,.h3,.h1,#descriptif_site_spip{color:[(#GET{grad2_4})];}
+.formulaire_spip fieldset legend,.formulaire_spip legend, .formulaire_spip label{color:[(#GET{grad2_4})];}
+
+#entete{background-color:[(#GET{grad2_5})];color:[(#GET{grad2_1})];border-color:[(#GET{grad1_4})];}
+#entete{
+box-shadow: 0px 0px 150px [(#GET{grad1_2})];
+-moz-box-shadow: 0px 0px 150px [(#GET{grad1_2})];
+-webkit-box-shadow: 0px 0px 150px [(#GET{grad1_2})];}
+#pied{background-color: [(#GET{grad2_5})];color:[(#GET{grad2_1})];}
+#pied{
+box-shadow: 0px -5px 5px [(#GET{grad2_5})];
+-moz-box-shadow: 0px -5px 5px [(#GET{grad2_5})];
+-webkit-box-shadow: 0px -5px 5px [(#GET{grad2_5})];}
+#pied a{color:[(#GET{grad2_1})];}
+#entete a{color:[(#GET{grad1_3})];}
+#entete a:focus,#entete a:hover,#entete a:active{color:[(#GET{grad2_2})];background:none;}
+#pied a:focus,#pied a:hover,#pied a:active{  background:none;  color: [(#GET{grad2_2})];}
+#pied a:focus img,#pied a:hover img,#pied a:active img{  background: none;}
+
+#navigation .menu-conteneur{background-color: transparent;color: [(#GET{grad1_1})];}
+#navigation .menu-conteneur a{color:[(#GET{grad1_1})];}
+#navigation .menu-conteneur li li a:hover{background-color:[(#GET{grad1_4})];}
+
+#navigation .menu-conteneur ul li{border-color:[(#GET{grad1_3})];background-color:[(#GET{grad2_5})];}
+#navigation .menu-conteneur ul li.on{
+box-shadow: 0px 0px 2px [(#GET{grad1_3})];
+-moz-box-shadow: 0px 0px 2px [(#GET{grad1_3})];
+-webkit-box-shadow: 0px 0px 2px [(#GET{grad1_3})];}
+#navigation .menu-conteneur ul li:hover{
+box-shadow: 0px 0px 5px [(#GET{grad1_3})];
+-moz-box-shadow: 0px 0px 5px [(#GET{grad1_3})];
+-webkit-box-shadow: 0px 0px 5px [(#GET{grad1_3})];}
+#navigation .menu-conteneur ul li li.on,#navigation .menu-conteneur ul li li:hover{
+box-shadow: 0px 0px 0px [(#GET{grad1_3})];
+-moz-box-shadow: 0px 0px 0px [(#GET{grad1_3})];
+-webkit-box-shadow: 0px 0px 0px [(#GET{grad1_3})];}
+
+#navigation .menu-conteneur ul ul{border-color: [(#GET{grad1_3})];}
+#navigation .menu-conteneur ul li a:hover,#navigation .menu-conteneur ul li.on li a:hover{color:[(#GET{grad2_1})];background-color:transparent;}
+#navigation .menu-conteneur ul li li{background-color:[(#GET{grad1_6})];}
+#navigation .menu-conteneur ul li li a:hover,#navigation .menu-conteneur ul li.on li a:hover{background-color:[(#GET{grad1_5})];}
+
+
+#navigation .menu ul{border-color:[(#GET{grad1_4})];background-color:[(#GET{grad2_1})]; }
+#navigation .menu ul ul{background-color:transparent !important;}
+#navigation .menu ul li a{
+  color: [(#GET{grad2_4})];
+}
+#navigation .menu ul li a:hover{
+  color: [(#GET{sup1})];
+}
+
+#extra .liste .h2,#extra .boite .h2{background-color:[(#GET{grad1_4})];color:[(#GET{grad1_1})];}
+#navigation .liste .h2, #navigation .boite .h2{background-color:[(#GET{grad1_4})];color:[(#GET{grad1_1})];} 
+#extra .liste .h2 a,#extra .boite .h2 a{color:[(#GET{grad1_1})]}
+#navigation .liste .h2 a, #navigation .boite .h2 a{color:[(#GET{grad1_1})];} 
+#extra .liste .h2 a:hover,#extra .boite .h2 a:hover{color:[(#GET{grad2_1})];background-color:transparent;}
+#navigation .liste .h2 a:hover, #navigation .boite .h2 a:hover{color:[(#GET{grad2_1})];background-color:transparent;} 
+#extra .formulaire_spip ,#extra .liste, #extra .boite{border-color:[(#GET{grad1_4})];}
+#navigation .formulaire_spip ,#navigation .liste, #navigation .boite{border-color:[(#GET{grad1_4})];}
+,#extra .formulaire_spip ,#extra .liste, #extra .boite{background-color:[(#GET{grad2_1})];}
+#navigation .formulaire_spip ,#navigation .liste, #navigation .boite{background-color:[(#GET{grad2_1})];}
+#extra .formulaire_spip ,#extra .liste, #extra .boite{border-color:[(#GET{grad1_4})];}
+#navigation .formulaire_spip ,#navigation .liste, #navigation .boite{border-color:[(#GET{grad1_4})];}
+
+.forum-message{border-color:[(#GET{grad1_4})];background-color:[(#GET{grad2_1})];}
+.forum-message .forum-chapo{background-color:[(#GET{grad1_4})];color:[(#GET{grad1_1})];}
+.forum-message .forum-chapo a{color:[(#GET{grad1_1})];}
+
+#contenu{background-color:[(#GET{grad1_1})];border-color:[(#GET{grad1_4})];}
+
+.liste-items .item .meta-publi	{background-color:[(#GET{grad2_1})];border-color:[(#GET{grad2_3})];}
+.liste-items .item .meta-publi a:hover	{ background-color:transparent;}
+#hierarchie a{color:[(#GET{grad2_4})];}
+
+.h2,.h3{color:[(#GET{grad1_4})];}
+
+select,textarea,input[text],.formulaire_spip input.text {color:[(#GET{grad2_4})];border-color:[(#GET{grad2_3})];background-color: [(#GET{grad2_2})];}
+select:focus,textarea:focus,input[text]:focus,.formulaire_spip input.text:focus {background-color: [(#GET{grad2_1})];}
+
+.boutons input,input.submit,input[submit]{cursor:pointer;}
+.boutons input,input.submit,input[submit]{color:[(#GET{grad2_2})];border-color:[(#GET{grad2_3})];background-color: [(#GET{grad2_4})];}
+
+.boutons input:hover,input.submit:hover,.boutons input:focus,input.submit:focus{background-color:[(#GET{grad2_3})];color:[(#GET{grad2_4})]}
+select option{background:[(#GET{grad2_4})];color: [(#GET{grad2_2})];}
+select option:hover{color:[(#GET{grad2_2})];background-color: [(#GET{grad2_3})];}
+

@@ -1,0 +1,37 @@
+[(#REM) Inscription au site ]
+#FORMULAIRE_INSCRIPTION
+
+
+<BOUCLE_article-agenda(ARTICLES){titre==^[2]}>
+
+<B_evenements>
+            #ANCRE_PAGINATION
+<div class="liste forums">
+    <h2 class="titre_tete">#TITRE</h2>
+    <ul class="liste-items">
+        
+        
+        
+            <BOUCLE_evenements(EVENEMENTS){par date}{age_fin<0}{pagination 5}>
+            <li><time>[(#DATE_DEBUT|affdate)]</time>
+            [<a href="#URL_EVENEMENT" class='mediabox'>(#TITRE|couper{65})</a>]</li>
+            </BOUCLE_evenements>
+            [<p class="pagination">(#PAGINATION)</p>]
+            
+            
+        
+           
+    </ul>
+</div>
+</B_evenements>
+
+</BOUCLE_article-agenda>
+
+
+
+    </div>
+    
+    
+
+
+ 

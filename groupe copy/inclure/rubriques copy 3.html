@@ -1,0 +1,36 @@
+[(#REM)
+    Barre de navigation, ouverte sur la hierarchie courante
+
+    On fait un plan, et, quand on avance vers une rubrique,
+    on l'affiche si son parent est expose ou est la racine du site. ]
+
+<div class="menu">
+    
+   <div>
+    <ul>
+        
+        <BOUCLE_menu(RUBRIQUES){racine}{par num titre, titre}{id_rubrique !=3}>
+        <li" id="menu#COMPTEUR_BOUCLE" onclick="afficheMenu(this)"><a href="#"><h3 class="couleur1">#TITRE</h3></a>
+            <ul id="sousmenu#COMPTEUR_BOUCLE" style="display: none;">
+                <BOUCLE_art_menu(ARTICLES){id_rubrique}{par titre}>
+                    <li><a href="#URL_ARTICLE">[(#TITRE|strtolower|ucfirst)]</a></li>
+                </BOUCLE_art_menu>
+            </ul>
+        </li>
+        </BOUCLE_menu>
+    </ul>
+   </div>
+   
+
+
+   
+   <div class="couleur_1">
+<h3>D&eacute;l&eacute;gations</h3>
+<p><BOUCLE_menu_deleg(RUBRIQUES){id_parent=1}{par titre}>
+    <a href="#URL_RUBRIQUE">[(#TITRE|strtolower|ucfirst)]</a>
+</BOUCLE_menu_deleg>
+</p>
+</div>
+   
+   
+</div>

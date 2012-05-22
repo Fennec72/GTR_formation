@@ -1,5 +1,6 @@
                     <div id="box1">
-                        <h2 class="bobox couleur_7">Mes favoris</h2>
+                        <h2 class="bobox couleur_7">(À changer)</h2>
+                        jkhkjhkj
                             
                     </div>
                     <div id="box2">
@@ -18,13 +19,32 @@
                                 </BOUCLE_forums_liens>
                             </ul>
                     </div>
+                    
+                    
+                    
                     <div id="box4">
                         <h2 class="bobox couleur_7">Aide</h2>
-                        <ul>
-                            <li>Nullam commodo feugiat aliquam</li>
-                            <li>Nullam commodo feugiat aliquam</li>
-                            <li>Nullam commodo feugiat aliquam</li>
-                            <li>Nullam commodo feugiat aliquam</li>
-                            <li>Nullam commodo feugiat aliquam</li>
-                        </ul>
+                        
+                        ici flux RSS rb2123 de l'intranet "Pour les groupes de travail"
+                        
+                        [(#REM) Articles issus de la syndication ]
+                                                     
+                        <B_syndic>
+                          #ANCRE_PAGINATION
+                        	<BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic=1} {par date}{inverse} {pagination 5}>
+                    
+                    	
+								<li>[(#DATE|affdate_court) &ndash; ]<strong>(#NOM_SITE)[(#LOGO_SITE||image_reduire{50,30})]</strong><br>
+									<a href="#URL_ARTICLE"[ title="(#NOM_SITE|texte_backend)"] class="spip_out"> #TITRE
+									</a>
+								</li>
+                        
+                        
+							</BOUCLE_syndic>
+                            
+                           [<p class="pagination">(#PAGINATION)</p>] 
+                        </B_syndic>
+ 
                     </div>
+
+   

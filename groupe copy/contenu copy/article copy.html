@@ -1,0 +1,45 @@
+<BOUCLE_contenu_article(ARTICLES){id_article}>
+<div class="contenu-principal">
+    <div class="cartouche">#FORMULAIRE_FAVORI
+        <BOUCLE_rub_mere(RUBRIQUES){id_rubrique=#ID_RUBRIQUE}>
+        <h2 class="#EDIT{titre} titre_tete#ID_SECTEUR">#TITRE</h2>
+        </BOUCLE_rub_mere>
+        [<h1 class="#EDIT{soustitre}">(#TITRE)</h1>]
+        #TIPAFRIEND 
+        <p class="info-publi"><abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|nom_jour) ][(#DATE|affdate)]</abbr>[, <span class="auteurs"><:par_auteur:> (#LESAUTEURS)</span>]</p>
+        [(#REM) Inclure le modele des liens de traductions ]
+        #MODELE{article_traductions}
+    </div>
+
+    <div class="surlignable">
+        [(#LOGO_ARTICLE|image_reduire{200,200})]
+        [<div class="#EDIT{chapo} chapo">(#CHAPO|image_reduire{300,300})</div>]
+        [<div class="#EDIT{texte} texte">(#TEXTE|image_reduire{300,300})</div>]
+        <hr style="clear:both" />
+    </div>
+
+    [<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+
+    [<div class="ps">
+        <h2 class="h2"><:info_ps:></h2>
+        <div class="#EDIT{ps} surlignable">(#PS|image_reduire{300,0})</div>
+    </div>]
+
+[(#REM) Gestion du portfolio et des documents ]
+[(#INCLURE{fond=inclure/documents}{id_article})]
+
+</div>
+
+[(#REM) Petition :
+La petition ayant une PAGINATION il faut absolument {env}
+et pourquoi pas ajax
+][(#PETITION|oui)<INCLURE{fond=inclure/petition}{id_article}{env}{ajax}>]
+
+[<div class="notes surlignable"><h2 class="h2 pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
+
+[(#REM) Forum de l'article ]
+<a href="#forum" name="forum" id="forum"></a>
+<INCLURE{fond=inclure/forum}{id_article} />
+[<p class="repondre"><a href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow">R&eacute;agissez &agrave; cet article</a></p>]
+
+</BOUCLE_contenu_article>

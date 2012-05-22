@@ -1,0 +1,7 @@
+<composition>
+	<nom>Rubrique Docuthèque Vert</nom>
+	<description>Composition adaptée à la rubrique "Docuthèque"</description>
+	<icon>images/article-docutheque.png</icon>
+	<branche type="article" composition="docutheque_vert" />
+	<branche type="rubrique" composition="docutheque_vert" />
+</composition>

@@ -1,0 +1,56 @@
+[(#REM) Inscription au site ]
+#FORMULAIRE_INSCRIPTION
+
+
+
+
+    
+    
+    
+    [(#REM) on affiche un lien vers le forum]
+    
+    <div class="liste mots">
+    <h2 class="h2">Agenda</h2>
+    <ul>    
+    
+    
+    <B_agenda>
+        	#ANCRE_PAGINATION
+            <BOUCLE_agenda(EVENEMENTS){par date}{inverse}{age<30} {pagination 5}>
+				<li>
+	  
+					[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+				 	Le [(#DATE_DEBUT|affdate)]
+					[(#HORAIRE|=={oui}|?{
+				
+					[(#REM) memes heures ?]
+				    	[(#DATE_DEBUT|=={#DATE_FIN}|?{&agrave;
+					[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})]
+				
+					[(#REM) pas memes heures ?]
+				    	[(#DATE_DEBUT|!={#DATE_FIN}|?{de
+					[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)] &agrave;
+					[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})]
+					,''})]
+					,
+					 Du [(#DATE_DEBUT|affdate)]
+					[(#HORAIRE|=={oui}|?{:
+					[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})] au
+					[(#DATE_FIN|affdate)] [(#HORAIRE|=={oui}|?{:
+					[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})]  })]
+					[<br /><!--<span >class="titre_plugin_agenda"--> &ndash; <a href="#URL_ARTICLE">(#TITRE)</a><!--</span>-->]
+			
+				</li>
+    		</BOUCLE_agenda>
+                            
+			[<p class="pagination">(#PAGINATION)</p>] 
+    	</B_agenda>
+    
+    
+    </ul>
+    </div>
+    
+    
+
+
+ 

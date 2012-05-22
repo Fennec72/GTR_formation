@@ -1,8 +1,8 @@
 <BOUCLE_contenu_article(ARTICLES){id_article}>
 <div class="contenu-principal">
-    <div class="cartouche">#FORMULAIRE_FAVORI
+    <div class="cartouche">
         <BOUCLE_rub_mere(RUBRIQUES){id_rubrique=#ID_RUBRIQUE}>
-        <h2 class="#EDIT{titre} titre_tete#ID_SECTEUR">#TITRE</h2>
+        <h2 class="#EDIT{titre} titre_tete">#TITRE<span class="pictos">  #IMPRIMIR_DOCUMENTO**</span></h2>
         </BOUCLE_rub_mere>
         [<h1 class="#EDIT{soustitre}">(#TITRE)</h1>]
         #TIPAFRIEND 
@@ -37,7 +37,12 @@ et pourquoi pas ajax
 
 [<div class="notes surlignable"><h2 class="h2 pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
 
-[(#REM) Forum de l'article ]
+
+ 		
+
+
+
+		[(#REM) Forum de l'article ]
 <a href="#forum" name="forum" id="forum"></a>
 <INCLURE{fond=inclure/forum}{id_article} />
 [<p class="repondre"><a href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow">R&eacute;agissez &agrave; cet article</a></p>]

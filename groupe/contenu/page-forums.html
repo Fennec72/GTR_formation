@@ -1,0 +1,6 @@
+<h2 class="bobox couleur_7"><:derniers_commentaires:></h2>
+	<ul>
+		<BOUCLE_forums_liens(FORUMS?) {plat} {par date}{inverse} {0,6}>
+			<li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>[(#TEXTE|couper{40})]</a></li>
+		</BOUCLE_forums_liens>
+	</ul>

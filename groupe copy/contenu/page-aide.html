@@ -1,0 +1,40 @@
+
+<div class="contenu-principal">
+    <div class="cartouche">
+        <h2 class="#EDIT{titre} titre_tete1">Aide</h2>
+        
+        
+        
+    </div>
+
+  
+	<ul>
+		ici flux RSS rb2123 de l'intranet "Pour les groupes de travail"
+                                
+		[(#REM) Articles issus de la syndication ]
+                                                     
+		<B_syndic>
+			#ANCRE_PAGINATION
+			<BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic=1} {par date}{inverse} {pagination 5}>
+                    
+                    	
+				<li>[(#DATE|affdate_court) &ndash; ]<br>
+					<a href="#URL_ARTICLE"[ title="(#NOM_SITE|texte_backend)"] class="spip_out"> #TITRE
+					</a>
+                    
+				</li>
+                        
+                        
+			</BOUCLE_syndic>
+                            
+			[<p class="pagination">(#PAGINATION)</p>] 
+		</B_syndic>
+                        
+	</ul>
+    
+</div>
+
+
+
+		
+

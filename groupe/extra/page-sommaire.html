@@ -1,33 +1,37 @@
 [(#REM) Inscription au site ]
 #FORMULAIRE_INSCRIPTION
 
-[(#REM) Liens des forums ]
 
+<BOUCLE_article-agenda(ARTICLES){titre==^[2]}>
+
+<B_evenements>
+            #ANCRE_PAGINATION
 <div class="liste forums">
-    <h2 class="titre_tete">LISTE DES PARTICIPANTS</h2>
-    [(#REM) Autres auteurs ]
-                
-				<B_auteurs>
-            <!--1--><div>
-			<!--2--><div><!-- class="rubriques1"-->
-				
-					[(#ANCRE_PAGINATION)]
-                    <h2><:info_auteurs:></h2><!-- class="menu-titre"-->
-					<ul>
-						<BOUCLE_auteurs(AUTEURS) {par nom} {pagination 7}>
-						<li><a href="#URL_AUTEUR"[ class="(#EXPOSE)"]>[(#LOGO_AUTEUR||image_reduire{50,50})] #NOM</a></li><hr />
-                		</BOUCLE_auteurs>
-				</ul>
-					[
-				  <p class="pagination">(#PAGINATION{page_precedent_suivant})</p>]
-                  </BOUCLE_pagination>
-                 
-                  </B_pagination><br>
-                  #GRAND_TOTAL auteurs, au total<!--cette page en affiche #TO_TAL_BO_UCLE-->
-				<!--fin 2--></div>
-
-			<!--fin 1--></div>
-			</B_auteurs>
-
+    <h2 class="titre_tete">#TITRE</h2>
+    <ul class="liste-items">
+        
+        
+        
+            <BOUCLE_evenements(EVENEMENTS){par date}{age_fin<0}{pagination 5}>
+            <li><time>[(#DATE_DEBUT|affdate)]</time>
+            [<a href="#URL_EVENEMENT" class='mediabox'>(#TITRE|couper{65})</a>]</li>
+            </BOUCLE_evenements>
+            [<p class="pagination">(#PAGINATION)</p>]
+            
+            
+        
+           
+    </ul>
 </div>
+</B_evenements>
+
+</BOUCLE_article-agenda>
+
+
+
+ 
+    
+    
+
+
  

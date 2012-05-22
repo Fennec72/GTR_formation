@@ -1,0 +1,59 @@
+ligne154
+
+#contenu,#contenu104{
+margin-left:0;
+}
+
+ligne558
+
+#contenu,#contenu104,#contenu746,#contenu681,#contenu103,#publications,#myspace,#contenu1,#contenu113, {
+margin-top:0.5em; 
+border-width:2px;
+border-style:solid;
+}
+#contenu,#contenu104,#contenu105,#contenu746,#contenu681,#contenu103,#publications,#myspace,#contenu1,#contenu113, #extra .liste1, #extra .liste104,#extra .liste746,#extra .liste681, #extra .liste113, #manager{
+  -moz-border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+  -webkit-border-radius:8px;
+  -o-border-radius:8px;
+  -o-border-radius:8px;
+  border-radius:8px;
+  border-radius:8px;
+  }
+
+
+ligne611
+
+#box2,#box3,#actu,#actu_portail1,#actu_portail104,#actu_portail746,#actu_portail681,#actu_portail113,#ma_,#ma_1,#ma_104,#ma_746,#ma_681,#outils1,#outils104,#outils746,#outils681,#outils113,#portrait,#rejoint,#actu_deleg,#actu_nat,#even_une,#dossier_une, #indic, #manager, #metier, #ma_113, #ma_746{
+    margin-top:0.5em;
+    border-width:2px;
+    border-style:solid;
+}
+
+#ma_,#outils104,#actu_portail104,#ma_104{
+    border-color:#FF8400;
+}
+#outils681,#actu_portail681,#ma_681{
+    border-color:#717B21;
+}
+
+#outils746,#actu_portail746,#ma_746{
+    border-color:#A25C07;
+}
+
+
+#outils113,#actu_portail113,#ma_113{
+    border-color:#F12C97;
+}
+
+ligne1250
+
+UNUSED.titre_tete img {
+float:right
+    }   
+    
+
+
+
+

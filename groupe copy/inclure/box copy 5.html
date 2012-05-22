@@ -1,0 +1,88 @@
+<div id="box1">[(#REM) Evénements agés de - de 30 jours et paginé par 5]
+	<h2 class="bobox couleur_7">Agenda</h2>
+    <ul>
+    	<B_agenda>
+        	#ANCRE_PAGINATION
+            <BOUCLE_agenda(EVENEMENTS){par date}{inverse}{age<30} {pagination 5}>
+				<li>
+	  
+					[(#DATE_DEBUT|jour|=={[(#DATE_FIN|jour)]}|?{
+				 	Le [(#DATE_DEBUT|affdate)]
+					[(#HORAIRE|=={oui}|?{
+				
+					[(#REM) memes heures ?]
+				    	[(#DATE_DEBUT|=={#DATE_FIN}|?{&agrave;
+					[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})]
+				
+					[(#REM) pas memes heures ?]
+				    	[(#DATE_DEBUT|!={#DATE_FIN}|?{de
+					[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)] &agrave;
+					[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})]
+					,''})]
+					,
+					 Du [(#DATE_DEBUT|affdate)]
+					[(#HORAIRE|=={oui}|?{:
+					[(#DATE_DEBUT|heures)]h[(#DATE_DEBUT|minutes)],''})] au
+					[(#DATE_FIN|affdate)] [(#HORAIRE|=={oui}|?{:
+					[(#DATE_FIN|heures)]h[(#DATE_FIN|minutes)],''})]  })]
+					[<br /><span class="titre_plugin_agenda"> &ndash; <a href="#URL_EVENEMENT">(#TITRE)</a></span>]
+			
+				</li>
+    		</BOUCLE_agenda>
+                            
+			[<p class="pagination">(#PAGINATION)</p>] 
+    	</B_agenda>
+	</ul>
+</div>
+                    
+                    
+                    
+<div id="box2">
+	<h2 class="bobox couleur_7">Articles les plus lus</h2>
+	<ul>
+		<BOUCLE_hitparade(ARTICLES){par popularite}{inverse}{0,8}>
+			<li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_ARTICLE">#TITRE</a></li>
+		</BOUCLE_hitparade>
+	</ul>
+</div>
+
+
+
+<div id="box3">
+	<h2 class="bobox couleur_7"><:derniers_commentaires:></h2>
+	<ul>
+		<BOUCLE_forums_liens(FORUMS?) {plat} {par date}{inverse} {0,6}>
+			<li>[<time>(#DATE|affdate_jourcourt)</time> &ndash; ]<a href="#URL_FORUM"[ title="(#TITRE|attribut_html|couper{80})"]>[(#TEXTE|couper{40})]</a></li>
+		</BOUCLE_forums_liens>
+	</ul>
+</div>
+                    
+                    
+                    
+<div id="box4">
+	<h2 class="bobox couleur_7">Aide</h2>
+	<ul>
+		ici flux RSS rb2123 de l'intranet "Pour les groupes de travail"
+                                
+		[(#REM) Articles issus de la syndication ]
+                                                     
+		<B_syndic>
+			#ANCRE_PAGINATION
+			<BOUCLE_syndic(SYNDIC_ARTICLES) {id_syndic=1} {par date}{inverse} {pagination 5}>
+                    
+                    	
+				<li>[(#DATE|affdate_court) &ndash; ]<br>
+					<a href="#URL_ARTICLE"[ title="(#NOM_SITE|texte_backend)"] class="spip_out"> #TITRE
+					</a>
+				</li>
+                        
+                        
+			</BOUCLE_syndic>
+                            
+			[<p class="pagination">(#PAGINATION)</p>] 
+		</B_syndic>
+                        
+	</ul>
+ </div>
+
+   

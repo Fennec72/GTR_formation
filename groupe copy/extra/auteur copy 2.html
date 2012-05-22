@@ -1,0 +1,24 @@
+
+		[(#REM) Autres auteurs ]
+                
+				<B_particicpants>
+            <div class="liste mots">
+			<h2 class="h2">Participants</h2>
+				
+					[(#ANCRE_PAGINATION)]
+                    
+					<ul>
+						<BOUCLE_particicpants(AUTEURS) {par nom} {pagination 7}>
+						<li><a href="#URL_AUTEUR"[ class="(#EXPOSE)"]>[(#LOGO_AUTEUR||image_reduire{30,30})] #NOM</a></li><hr />
+                		</BOUCLE_particicpants>
+				</ul>
+					[
+				  <p class="pagination">(#PAGINATION{page_precedent_suivant})</p>]
+                  </BOUCLE_pagination>
+                 
+                  </B_pagination><br>
+                  #GRAND_TOTAL participants, au total
+				</div>
+
+			</div>
+			</B_particicpants>

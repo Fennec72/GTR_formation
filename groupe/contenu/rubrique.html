@@ -1,21 +1,17 @@
-<BOUCLE_rub_portail(RUBRIQUES){id_rubrique}{titre_mot IN 'portail','portail_deleg'}>
-	<INCLURE{fond=inclure/portail,env}>
-</BOUCLE_rub_portail>
-<BOUCLE_rub_theme(RUBRIQUES){id_rubrique}{titre_mot=theme}>
-	<INCLURE{fond=inclure/theme,env}>
-</BOUCLE_rub_theme>
+
 <BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}>
 [(#REM) Fil d'Ariane ]
 
 <div class="contenu-principal">
 
-	<div class="cartouche">#FORMULAIRE_FAVORI
-		<h2 class="titre_tete#ID_SECTEUR #EDIT{titre}">#TITRE</h2>
+	<div class="cartouche">
+		<h2 class="titre_tete #EDIT{titre}">#TITRE</h2>
 		
 	</div>
 
 	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
-</div>
+</div><!--FIN div class="contenu-principal"-->
+
 <B_articles>
 <div class="liste articles">
 	#ANCRE_PAGINATION
@@ -31,7 +27,7 @@
 	[(#REM) Si aucun article, affiche un plan de la rubrique ]
 	<B_sous_rubriques>
 	<div class="menu rubriques">
-		<h2 class="h2"><:sous_rubriques:></h2>
+		<h2 class="h2" style="padding-left:15px;"><:sous_rubriques:></h2>
 		<ul class="menu-liste">
 			<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre, titre}>
 			<li class="menu-entree">
@@ -52,10 +48,9 @@
 			</li>
 			</BOUCLE_sous_rubriques>
 		</ul>
-		</div>
+	</div><!--FIN div class="menu rubriques"-->
 	</B_sous_rubriques>
 <//B_articles>
 [<div class="notes"><h2 class="h2"><:info_notes:></h2>(#NOTES)</div>]
 </BOUCLE_contenu_rubrique>
-<//B_rub_theme>
-<//B_rub_portail>
+

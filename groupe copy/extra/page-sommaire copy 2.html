@@ -1,0 +1,34 @@
+[(#REM) Inscription au site ]
+#FORMULAIRE_INSCRIPTION
+
+
+
+<div class="liste forums">
+    
+    [(#REM) Autres auteurs ]
+                
+			<B_auteurs>
+            
+            
+			
+				<h2 class="titre_tete">LISTE DES PARTICIPANTS</h2>
+					[(#ANCRE_PAGINATION)]
+                    
+				<ul>
+						<BOUCLE_auteurs(AUTEURS) {par nom} {pagination 5}>
+						<li><a href="#URL_AUTEUR"[ class="(#EXPOSE)"]>[(#LOGO_AUTEUR||image_reduire{30,30})] #NOM</a></li>												                        
+                		</BOUCLE_auteurs>
+				</ul>
+					[
+				  <p class="pagination">(#PAGINATION{page_precedent_suivant})</p>]
+                  </BOUCLE_pagination>
+                 
+                  </B_pagination>
+                  <p>#GRAND_TOTAL participants, au total<!--cette page en affiche #TO_TAL_BO_UCLE--><p>
+				
+
+			
+			</B_auteurs>
+
+</div>
+ 

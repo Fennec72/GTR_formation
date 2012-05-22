@@ -1,0 +1,7 @@
+<composition>
+	<nom>Rubrique 1 colonne</nom>
+	<description>Composition pour une rubrique et des pages d'articles à 1 colonne au centre</description>
+	<icon>images/article-1col.png</icon>
+	<branche type="article" composition="1colonne" />
+	<branche type="rubrique" composition="1colonne" />
+</composition>

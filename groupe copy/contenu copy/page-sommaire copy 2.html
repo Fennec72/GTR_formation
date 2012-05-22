@@ -1,0 +1,18 @@
+<div class="liste articles sommaire"><!--<div id="suite">-->      
+
+    <h2 class="titre_tete"><:derniers_articles:></h2>
+    [(#REM) Derniers articles ]
+    <dl>
+        <B_articles_recents>
+        #ANCRE_PAGINATION
+        <BOUCLE_articles_recents(ARTICLES){!par date}{pagination 5}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">#TITRE</a></dt>
+        <dd>[<a href="#URL_ARTICLE">(#LOGO_ARTICLE|image_reduire{300})</a>]
+        <time>[(#DATE|affdate_jourcourt)]</abbr>[, <:par_auteur:> (#LESAUTEURS)]</time>[ (#CHAPO|couper{130})][ (#CHAPO|choixsivide{#TEXTE|couper{130}})]</dd>
+        <hr class="sepa" />
+        </BOUCLE_articles_recents>
+        [<p class="pagination">(#PAGINATION)</p>]
+        </B_articles_recents>
+    </dl>
+
+</div>

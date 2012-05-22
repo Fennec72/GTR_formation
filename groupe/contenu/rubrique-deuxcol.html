@@ -1,0 +1,112 @@
+
+<BOUCLE_contenu_rubrique(RUBRIQUES){id_rubrique}>
+[(#REM) Fil d'Ariane ]
+
+<div class="contenu-principal">
+
+
+	<div class="cartouche">
+		<h2 class="titre_tete #EDIT{titre}">#TITRE</h2>
+		
+	</div>
+
+	[<div class="#EDIT{texte} chapo">(#TEXTE)</div>]
+</div><!--FIN div class="contenu-principal"-->
+
+
+
+<div class="colgauche">
+
+    
+    
+    
+    
+    [(#REM) les Articles récents, derniers mis en ligne ou mis à jour ]
+		
+        <B_articles_latest4>
+		<h4>derniers mis en ligne ou mis à jour</h4>
+				
+					
+					
+					
+						
+					<BOUCLE_articles_latest4(ARTICLES) {par date_modif}{inverse}{id_rubrique}{0,1}{doublons}>
+						
+					<strong><small>[(#SURTITRE||image_reduire{175,50})]</small></strong>
+[(#LOGO_ARTICLE_RUBRIQUE|#URL_ARTICLE|image_reduire{175,50})]
+
+					<h3 class="titre"><a href="#URL_ARTICLE" rel="bookmark">[(#TITRE||image_reduire{175,50})]</a></h3><br>
+							<em><small>[(#SOUSTITRE||image_reduire{175,50})]</small></em>
+					
+				[<small>paru le (#DATE|affdate{'d/m/Y'})] | [mise &agrave; jour le (#DATE_MODIF|affdate{'d/m/Y'})</small>][, <:par_auteur:> (#LESAUTEURS)]
+                [(#REM) Inclure le modele des liens de traductions ]
+            #MODELE{article_traductions}			
+                        
+                        	<p><a href="#URL_ARTICLE" rel="bookmark">
+                        	[<div class="#EDIT{intro} texte_alaUne">(#TEXTE|couper{400})</div>]</a></p>
+                   
+						
+						<hr />
+						</BOUCLE_articles_latest4>
+					
+                  
+				
+
+			
+		</B_articles_latest4>
+
+
+
+</div><!--FIN div class="colgauche"-->
+
+<div class="coldroite">
+
+[(#REM) Derniers articles ]
+    <dl>
+        <B_articles_recents>
+        #ANCRE_PAGINATION
+        <BOUCLE_articles_recents(ARTICLES){id_rubrique}{!par date}{pagination 3}>
+        <dt><img src="#CHEMIN{images/fleche.png}" /><a href="#URL_ARTICLE">#TITRE</a></dt>
+        <dd>[<a href="#URL_ARTICLE">(#LOGO_ARTICLE|image_reduire{300})</a>]
+        <time>[(#DATE|affdate_jourcourt)]</abbr>[, <:par_auteur:> (#LESAUTEURS)]</time>[ (#CHAPO|couper{130})][ (#CHAPO|choixsivide{#TEXTE|couper{130}})]</dd>
+        <hr class="sepa" />
+        </BOUCLE_articles_recents>
+        [<p class="pagination">(#PAGINATION)</p>]
+        </B_articles_recents>
+    </dl>
+    
+</div><!--FIN div class="coldroite"-->
+
+	[(#REM) Si aucun article, affiche un plan de la rubrique ]
+	<B_sous_rubriques>
+	<div class="menu rubriques">
+		<h2 class="h2" style="padding-left:15px;"><:sous_rubriques:></h2>
+		<ul class="menu-liste">
+			<BOUCLE_sous_rubriques(RUBRIQUES) {id_parent} {par num titre, titre}>
+			<li class="menu-entree">
+				<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+
+				[(#REM) Une boucle recursive pour le mini plan]
+				<B_miniplan>
+				<ul class="menu-liste">
+					<BOUCLE_miniplan(RUBRIQUES) {id_parent} {par num titre, titre}>
+					<li class="menu-entree">
+						<a href="#URL_RUBRIQUE">[(#TITRE)]</a>
+						<BOUCLE_m2(BOUCLE_miniplan)></BOUCLE_m2>
+					</li>
+					</BOUCLE_miniplan>
+				</ul>
+				</B_miniplan>
+
+			</li>
+			</BOUCLE_sous_rubriques>
+		</ul>
+		</div><!--FIN div class="menu rubriques"-->
+	</B_sous_rubriques>
+    
+    
+    
+
+[<div class="notes"><h2 class="h2"><:info_notes:></h2>(#NOTES)</div>]
+</BOUCLE_contenu_rubrique>
+

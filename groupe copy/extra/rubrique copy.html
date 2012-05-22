@@ -1,0 +1,87 @@
+<BOUCLE_extra_rubrique(RUBRIQUES){id_rubrique}>
+    [(#REM) Menu de navigation themes ]
+    <B_extra_theme>
+    <div class="liste#ID_SECTEUR mots">
+    <h2 class="h2">THEMATIQUES</h2>
+    <ul>
+    <BOUCLE_extra_theme(RUBRIQUES){id_parent}{titre_mot=theme}>
+        <li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+    </BOUCLE_extra_theme>
+    </ul>
+    </div>
+    </B_extra_theme>
+    <B_extra_deleg>
+    <div class="liste#ID_SECTEUR mots">
+    <h2 class="h2">LES DELEGATIONS</h2>
+    <ul>
+    <BOUCLE_extra_deleg(RUBRIQUES){id_parent}{titre_mot=delegation_region}>
+        <BOUCLE_art_deleg(ARTICLES){id_rubrique}>
+        <li><a href="#URL_ARTICLE">#TITRE</a></li>
+        </BOUCLE_art_deleg>
+    </BOUCLE_extra_deleg>
+    </ul>
+    </div>
+    </B_extra_deleg>
+    [(#REM) on affiche un lien vers le forum]
+    <BOUCLE_forums(RUBRIQUES){id_parent}{titre_mot=forum}>
+    <div class="liste#ID_SECTEUR mots">
+    <h2 class="h2">FORUMS</h2>
+    <ul>    
+    <BOUCLE_art_forum(ARTICLES){id_rubrique}>
+        <li><a href="#URL_ARTICLE">#TITRE</a></li>
+    </BOUCLE_art_forum>
+    </ul>
+    </div>
+    </BOUCLE_forums>
+    [(#REM)on affiche un lien vers le classeur]
+    <B_classeur>
+    <div class="liste#ID_SECTEUR mots ">
+    <h2 class="h2">CLASSEURS</h2>
+    <ul>
+    <BOUCLE_classeur(RUBRIQUES){id_parent}{titre_mot=classeur}>
+        <li><a href="#URL_RUBRIQUE">#TITRE</a></li>
+    </BOUCLE_classeur>
+    </ul>
+    </div>
+    </B_classeur>
+    [(#REM) on affiche un lien vers la page faq ]
+    <B_faq>
+    <div class="liste#ID_SECTEUR mots ">
+    <h2 class="h2">Foire aux questions</h2>
+    <ul>
+    <BOUCLE_faq(ARTICLES){id_rubrique}{titre_mot=faq}>
+        <li><a href="#URL_ARTICLE">#TITRE</a></li>
+    </BOUCLE_faq>
+    </ul>
+    </div>
+    </B_faq>
+    <B_coordonees>
+    <div class="liste#ID_SECTEUR mots ">
+    <BOUCLE_coordonees(RUBRIQUES){id_rubrique}{titre_mot IN Portail_deleg,theme}>
+    <BOUCLE_art_coordonees(ARTICLES){id_rubrique}{titre_mot=coordonees}>
+    <h2 class="h2">#TITRE</h2>
+    #TEXTE
+    <hr style="clear:both" />
+    </BOUCLE_art_coordonees>
+    </BOUCLE_coordonees>
+    </div>
+    </B_coordonees>
+    [(#REM) Menu de navigation mots-cles ]
+    <div class="liste#ID_SECTEUR mots">
+        <h2 class="h2">MOTS CLES</h2>
+        <ul>
+            <BOUCLE_rub_mots(ARTICLES){id_rubrique}>
+                <BOUCLE_mots(MOTS) {id_article}{!id_groupe=1} {par titre}>
+                <li class="nuage"><a href="#URL_MOT" rel="tag">#TITRE</a></li>
+                </BOUCLE_mots>
+            </BOUCLE_rub_mots>
+            <BOUCLE_ss_rub_mots_parent(RUBRIQUES){id_parent}>
+                <BOUCLE_ss_art_mots(ARTICLES){id_rubrique}>
+                <BOUCLE_ss_mots(MOTS) {id_article}{!id_groupe=1} {par titre}{doublons}>
+                <li><a href="#URL_MOT" rel="tag">#TITRE</a></li>
+                </BOUCLE_ss_mots>
+                </BOUCLE_ss_art_mots>
+            </BOUCLE_ss_rub_mots_parent>
+        </ul>
+    </div>
+</BOUCLE_extra_rubrique>

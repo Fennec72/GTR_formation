@@ -1,0 +1,53 @@
+[(#REM)
+    Barre de navigation, ouverte sur la hierarchie courante
+
+    On fait un plan, et, quand on avance vers une rubrique,
+    on l'affiche si son parent est expose ou est la racine du site. ]
+
+<div class="menu">
+
+
+
+
+<div class="couleur_6">
+
+<BOUCLE_menu_outils(RUBRIQUES){titre==^[3]}>
+	
+    <h3>#TITRE</h3>
+    
+</BOUCLE_menu_outils>
+
+
+
+<p>
+<BOUCLE_agenda(ARTICLES){titre==^[2]}>
+    <a href="#URL_ARTICLE">#TITRE</a>
+</BOUCLE_agenda>
+
+
+
+
+<BOUCLE_menu_outils1(RUBRIQUES){titre==^[3]}>
+	<BOUCLE_sousrub_outils1(RUBRIQUES){id_parent}{par titre}>
+    <a href="#URL_RUBRIQUE">#TITRE</a>
+    </BOUCLE_sousrub_outils1>
+</BOUCLE_menu_outils1>
+
+
+
+</p>
+</div>
+
+
+<div class="couleur_1">
+<h3>Participants</h3>
+<p><BOUCLE_particicpants(AUTEURS) {par nom}>
+    <a href="#URL_AUTEUR">#NOM</a>
+</BOUCLE_particicpants>
+</p>
+</div>
+
+
+
+
+</div>
